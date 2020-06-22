@@ -1,0 +1,3 @@
+souce_file: sub_sub_main.yml
+sub_sub_prop: x
+is_sub_sub_extended: false

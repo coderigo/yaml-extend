@@ -1,0 +1,7 @@
+souce_file: sub_main.yml
+is_extended: false
+sub_main_prop: x
+is_sub_extended: false
+sub_sub_main:
+  extends: partials/sub_sub_main.yml
+  is_sub_sub_extended: true

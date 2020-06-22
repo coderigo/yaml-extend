@@ -1,0 +1,10 @@
+souce_file: main.yml
+sub_main:
+  souce_file: sub_main.yml
+  is_extended: true
+  sub_main_prop: x
+  is_sub_extended: false
+  sub_sub_main:
+    souce_file: sub_sub_main.yml
+    sub_sub_prop: x
+    is_sub_sub_extended: true

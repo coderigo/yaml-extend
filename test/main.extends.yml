@@ -1,0 +1,4 @@
+souce_file: main.yml
+sub_main:
+  is_extended: true
+  extends: partials/sub_main.yml
