@@ -8,8 +8,8 @@ main();
 
 function main() {
     if (process.argv.length !== 3) {
-      console.error('yaml-extends takes a single argument: path to file to extend.');
-      process.exit(1);
+        console.error('yaml-extends takes a single argument: path to file to extend.');
+        process.exit(1);
     }
 
     const opts = { targetFilePath: path.resolve(process.argv[2]) };
@@ -19,10 +19,10 @@ function main() {
         process.exit(1);
     }
     if (!opts.targetFilePath.endsWith('.extends.yml')) {
-      console.error(
-        `File cannot be extended if it does not end in .extends.yml: ${opts.targetFilePath}`
-      );
-      process.exit(1);
+        console.error(
+            `File cannot be extended if it does not end in .extends.yml: ${opts.targetFilePath}`
+        );
+        process.exit(1);
     }
 
     console.log(`Extending file at ${opts.targetFilePath}`);
