@@ -5,3 +5,5 @@ is_sub_extended: false
 sub_sub_main:
   extends: partials/sub_sub_main.yml
   is_sub_sub_extended: true
+some_list:
+  - 2

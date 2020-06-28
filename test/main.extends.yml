@@ -2,3 +2,7 @@ souce_file: main.yml
 sub_main:
   is_extended: true
   extends: partials/sub_main.yml
+  some_list:
+    - 1
+    - extends: partials/list_object.yml
+      extended: true

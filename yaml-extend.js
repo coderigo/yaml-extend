@@ -40,27 +40,30 @@ function main() {
 }
 
 function fillExtends({ json, baseDir }) {
-  for (let [key, value] of Object.entries(json)) {
-    if (!_.isObject(value)) {
-      json[key] = value;
-      continue;
-    }
+    for (let [key, value] of Object.entries(json)) {
+        if (!_.isObject(value)) {
+            json[key] = value;
+            continue;
+        }
 
-    if (_.isObject(value)) {
-      if (!!value.extends) {
-        if (!_.isArray(value.extends)) {
-            value.extends = [value.extends];
+        if (_.isObject(value)) {
+            if (!!value.extends) {
+                if (!_.isArray(value.extends)) {
+                    value.extends = [value.extends];
+                }
+                value.extends.forEach((extension) => {
+                    const extensionFilePath = path.resolve(baseDir, extension);
+                    console.log(`Extending from ${extensionFilePath}`);
+                    value = mergeDeep(load(extensionFilePath), value);
+                });
+                delete value['extends'];
+            }
+            json[key] = fillExtends({ json: value, baseDir });
+            if (_.isArray(json[key])) {
+                json[key] = json[key].sort();
+            }
+            continue;
         }
-        value.extends.forEach((extension) => {
-            const extensionFilePath = path.resolve(baseDir, extension);
-            console.log(`Extending from ${extensionFilePath}`);
-            value = mergeDeep(load(extensionFilePath), value);
-        });
-            delete value['extends'];
-        }
-        json[key] = fillExtends({ json: value, baseDir });
-        continue;
-    }
   }
   return json;
 }

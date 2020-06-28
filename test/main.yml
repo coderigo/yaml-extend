@@ -8,3 +8,8 @@ sub_main:
     souce_file: sub_sub_main.yml
     sub_sub_prop: x
     is_sub_sub_extended: true
+  some_list:
+    - 1
+    - 2
+    - extended: true
+      hello: from_extension

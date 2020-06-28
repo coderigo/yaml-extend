@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+    yaml-extend:
+        image: coderigo/yaml-extend:1.0.0
+        build:
+            context: .
